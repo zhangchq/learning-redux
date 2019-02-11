@@ -1,12 +1,13 @@
 const path=require('path');
 
-module.exports = {
+const config = {
     entry: {
         main: './src/index.js'
     },
     output: {
         filename: '[name].js',
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, 'dist'),
+        publicPath: '/'
     },
     module: {
         rules: [
@@ -23,3 +24,15 @@ module.exports = {
         ]
     }
 };
+
+module.exports = (env, argv) => {
+    if (argv.mode === 'development') {
+        config.devtool = 'cheap-module-eval-source-map';
+    }
+
+    if (argv.mode === 'production') {
+        config.devtool = 'source-map';
+    }
+
+    return config;
+}

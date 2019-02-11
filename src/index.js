@@ -1,1 +1,3 @@
-console.log('Hello world!');
+import { createPost } from './actions';
+
+console.log(createPost('rick', 'New Post'));
