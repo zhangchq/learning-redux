@@ -1,4 +1,4 @@
-const path=require('path');
+const path = require('path');
 
 const config = {
     entry: {
@@ -11,18 +11,19 @@ const config = {
     },
     module: {
         rules: [
-            { 
-                test: /\.jsx?$/, 
+            {
+                test: /\.jsx?$/,
                 exclude: /node-modules/,
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ['@babel/preset-env']
+                        presets: ['@babel/preset-env'],
+                        presets: ['@babel/preset-react'],
                     }
-                }
+                },
             }
-        ]
-    }
+        ],
+    },
 };
 
 module.exports = (env, argv) => {
