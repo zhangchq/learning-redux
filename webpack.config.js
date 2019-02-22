@@ -24,6 +24,9 @@ const config = {
             }
         ],
     },
+    resolve: {
+        extensions: ['.js', '.jsx'],
+    }
 };
 
 module.exports = (env, argv) => {
