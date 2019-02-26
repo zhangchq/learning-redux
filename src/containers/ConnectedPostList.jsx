@@ -1,22 +1,11 @@
-import React from 'react';
+import { connect } from 'react-redux';
+
 import PostList from '../components/PostList';
 
-export default class ConnectedPostList extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = props.store.getState();
-    }
+const mapStateToProps = (state, props) => {
+    return {posts: state.posts};
+} 
 
-    componentDidMount() {
-        const { store } = this.props;
-        this.unsubscribe = store.subscribe(() => this.setState({ ...store.getState() }));
-    }
+const ConnectedPostList = connect(mapStateToProps)(PostList);
 
-    componentWillUnmount() {
-        this.unsubscribe();
-    }
-
-    render() {
-        return <PostList {...this.state} />
-    }
-}
+export default ConnectedPostList;
