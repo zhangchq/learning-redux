@@ -1,16 +1,16 @@
 import { createPost, editPost, setFilter } from './actions';
 import { createStore } from 'redux';
 import appReducer from './reduces';
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import ConnectedPostList from './containers/ConnectedPostList';
+import React from "react";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import ConnectedPostList from "./containers/ConnectedPostList";
 
 let store = createStore(appReducer);
 
-store.dispatch(createPost('Rick', 'Hello world!'));
+store.dispatch(createPost("Rick", {title: "hi", text: "Hello world!"}));
 
-setTimeout(() => store.dispatch(createPost('Emily', 'hi!')), 1000);
+setTimeout(() => store.dispatch(createPost("Emily", {title: "hi", text: "nice day"})), 1000);
 
 const App = () => 
     <Provider store={store}>
