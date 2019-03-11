@@ -1,6 +1,6 @@
 import { createPost, editPost, setFilter } from './actions';
 import { createStore } from 'redux';
-import appReducer from './reduces';
+import appReducer from './reducers';
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
