@@ -10,7 +10,7 @@ const mapStateToProps = (state, props) => {
             return [ ...acc, post.category ];
         }
         return acc;
-    }, [ ]);
+    }, []);
 
     return { categories };
 }

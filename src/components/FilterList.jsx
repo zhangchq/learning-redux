@@ -1,7 +1,7 @@
 import React from "react";
 import Filter from "./Filter";
 
-const FilterList = ({ categories, setFilter, clearFilter }) =>
+const FilterList = ({ categories, setFilter, clearFilter }) => (
     <span>
         {
             categories.map((category, i) => 
@@ -16,5 +16,6 @@ const FilterList = ({ categories, setFilter, clearFilter }) =>
         }
         <a href="javascript:void(0)" onClick={clearFilter}>all posts</a>
     </span>
+);
 
 export default FilterList;
