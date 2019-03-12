@@ -9,7 +9,7 @@ export const createPost = (user, post) => {
 
     return {
         type: CREATE_POST,
-        post: { title, text, category },
+        post: { user, title, text, category },
     };
 }
 

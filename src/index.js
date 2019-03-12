@@ -3,8 +3,7 @@ import { createStore } from 'redux';
 import { createUser, createPost } from './actions';
 import React from "react";
 import ReactDOM from "react-dom";
-import { Provider } from "react-redux";
-import ConnectedPostList from "./containers/ConnectedPostList";
+import App from "./components/App";
 
 let store = createStore(appReducer);
 
@@ -26,12 +25,7 @@ console.log("initial state: ", store.getState());
 
 store.subscribe(() => console.log("state changed: ", store.getState()));
 
-const App = () => 
-    <Provider store={store}>
-        <ConnectedPostList />
-    </Provider>
-
 ReactDOM.render(
-    <App />,
+    <App store={store} />,
     document.getElementById('root')
 );

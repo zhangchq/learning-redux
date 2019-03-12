@@ -1,6 +1,13 @@
 import React from 'react';
 
-const Post = ({user, text}) => 
-    <span><b>{user}</b> - {text}</span>
+import Timestamp from "./Timestamp";
+import User from "./User";
+
+const Post = ({ user, title, text, category, created, updated }) => 
+    <span>
+        <b>{title}</b>: {text}
+        <i>{' ~ ' }<User {...user} /></i><br />
+        (Created at: <Timestamp data={created} />, Updated at: <Timestamp data={updated} />)
+    </span>
 
 export default Post;
