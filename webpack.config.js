@@ -29,13 +29,13 @@ const config = {
     }
 };
 
-module.exports = (env, argv) => {
-    if (argv.mode === 'development') {
-        config.devtool = 'cheap-module-eval-source-map';
-    }
-
-    if (argv.mode === 'production') {
+module.exports = (env/*, args*/) => {
+    if (env.production) {
+        config.mode = "production";
         config.devtool = 'source-map';
+    } else {
+        config.mode = "development";
+        config.devtool = 'cheap-module-eval-source-map';
     }
 
     return config;
