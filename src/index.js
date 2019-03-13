@@ -1,14 +1,10 @@
-import appReducer from './reducers';
-import { compose, createStore } from 'redux';
 import { createUser, createPost } from './actions';
 import React from "react";
 import ReactDOM from "react-dom";
-import { persistState } from "redux-devtools";
 import App from "./components/App";
-import DevTools from "./containers/DevTools";
+import configureStore from "./store";
 
-const enhancer = compose(DevTools.instrument(), persistState(getSessionKey()));
-let store = createStore(appReducer, {}, enhancer);
+let store = configureStore();
 
 const initialState = store.getState();
 
@@ -39,7 +35,3 @@ ReactDOM.render(
     document.getElementById('root')
 );
 
-function getSessionKey() {
-    const matches = window.location.href.match(/[?&]debug=([^&#]+)\b/);
-    return (matches && matches.length > 0) ? matches[1] : null;
-}

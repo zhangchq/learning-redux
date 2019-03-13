@@ -12,7 +12,7 @@ const App = ( { store }) => (
             <h1>React/Redux blog app</h1>
             <div><ConnectedPostList /></div>
             <div><ConnectedFilterList /></div>
-            <DevTools />
+            { (process.env.NODE_ENV !== "production") &&<DevTools /> }
         </div>
     </Provider>
 );
